@@ -5,7 +5,7 @@
 void TisGame::Initialize() {
 	//基底クラスの初期化
 	Framework::Initialize();
-	BaseScene* scene = new TitleScene(sceneManager_);
+	BaseScene* scene = new TitleScene();
 	sceneManager_->SetNextScene(scene);
 }
 

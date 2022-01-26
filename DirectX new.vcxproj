@@ -153,7 +153,6 @@
     <ClCompile Include="3d\Mesh.cpp" />
     <ClCompile Include="3d\Model.cpp" />
     <ClCompile Include="3d\Object3d.cpp" />
-    <ClCompile Include="BaseScene.cpp" />
     <ClCompile Include="base\Audio.cpp" />
     <ClCompile Include="base\DirectXCommon.cpp" />
     <ClCompile Include="base\Input.cpp" />

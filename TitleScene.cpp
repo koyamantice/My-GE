@@ -5,11 +5,6 @@
 #include "input.h"
 #include "DebugText.h"
 #include"GamePlayScene.h"
-TitleScene::TitleScene(SceneManager* sceneManager) 
-	:BaseScene(sceneManager) {
-
-
-}
 
 void TitleScene::Initialize() {
 	// テクスチャ読み込み
@@ -30,8 +25,8 @@ void TitleScene::Finalize() {
 void TitleScene::Update() {
 	Input* input = Input::GetInstance();
 	if (input->PushKey(DIK_RETURN)) {
-		BaseScene* scene = new GamePlayScene(sceneManager);
-		sceneManager->SetNextScene(scene);
+		BaseScene* scene = new GamePlayScene();
+		sceneManager_->SetNextScene(scene);
 	}
 	DebugText::GetInstance()->Print("Oh!MyGod!!", 200, 100, 1.0f);
 }

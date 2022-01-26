@@ -8,8 +8,6 @@
 /// </summary>
 class GamePlayScene : public BaseScene{
 public:
-	GamePlayScene(SceneManager* sceneManager);
-
 
 	/// <summary>
 	/// 初期化

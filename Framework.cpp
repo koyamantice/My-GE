@@ -53,11 +53,12 @@ void Framework::Initialize() {
 	Object3d::StaticInitialize(dxCommon->GetDev(), dxCommon->GetCmdList(), WinApp::window_width, WinApp::window_height);
 	// マウスカーソルの非表示
 	ShowCursor(TRUE);
-
-
+	//シーンマネージャー
+	sceneManager_ = new SceneManager();
 }
 
 void Framework::Finalize() {
+	delete sceneManager_;
 	delete dxCommon;
 	winApp->Finalize();
 	delete winApp;
@@ -70,8 +71,15 @@ void Framework::Update() {
 		endResquest_ = true;
 		return;
 	}
+	sceneManager_->Update();
 }
 
 void Framework::Draw() {
+	dxCommon->PreDraw();
+
+	sceneManager_->Draw();
+
+	debugText->DrawAll();
+	dxCommon->PostDraw();
 
 }

@@ -1,9 +1,12 @@
 ﻿#pragma once
 
+#include"SceneManager.h"
 #include "Framework.h"
 #include <vector>
 
 class GamePlayScene;
+class TitleScene;
+
 class TisGame:public Framework {
 public:
 	/// <summary>
@@ -23,6 +26,5 @@ public:
 	/// </summary>
 	void Draw() override;
 private:
-	GamePlayScene* scene_ = nullptr;
 };
 

@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include"SceneManager.h"
 #include "DirectXCommon.h"
 #include "WinApp.h"
 #include "Input.h"
@@ -6,7 +7,7 @@
 #include "Audio.h"
 #include "Object3d.h"
 #include "Sprite.h"
-
+#include "SceneManager.h"
 /// <summary>
 /// フレームワーク
 /// </summary>
@@ -33,7 +34,7 @@ public:
 	/// <summary>
 /// 描画
 /// </summary>
-	virtual void Draw() = 0;//=0でこのクラスは継承のみ
+	virtual void Draw();//=0でこのクラスは継承のみ
 
 	bool IsEndRequst() { return endResquest_; }
 protected:
@@ -44,6 +45,6 @@ protected:
 	Input* input = nullptr;
 	Audio* audio = nullptr;
 	DebugText* debugText = nullptr;
-
+	SceneManager* sceneManager_ = nullptr;
 };
 

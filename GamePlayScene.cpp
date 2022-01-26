@@ -3,6 +3,13 @@
 #include "input.h"
 #include "DebugText.h"
 
+GamePlayScene::GamePlayScene(SceneManager* sceneManager) 
+	:BaseScene(sceneManager)
+{
+
+
+}
+
 void GamePlayScene::Initialize() {
 	//オブジェクト初期化
 	objPin = Object3d::Create();

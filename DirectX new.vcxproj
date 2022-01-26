@@ -153,6 +153,7 @@
     <ClCompile Include="3d\Mesh.cpp" />
     <ClCompile Include="3d\Model.cpp" />
     <ClCompile Include="3d\Object3d.cpp" />
+    <ClCompile Include="BaseScene.cpp" />
     <ClCompile Include="base\Audio.cpp" />
     <ClCompile Include="base\DirectXCommon.cpp" />
     <ClCompile Include="base\Input.cpp" />
@@ -165,7 +166,9 @@
     <ClCompile Include="Framework.cpp" />
     <ClCompile Include="GamePlayScene.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="TisGame.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj">
@@ -190,7 +193,10 @@
     <ClInclude Include="collision\CollisionTypes.h" />
     <ClInclude Include="Framework.h" />
     <ClInclude Include="GamePlayScene.h" />
+    <ClInclude Include="BaseScene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="TisGame.h" />
+    <ClInclude Include="TitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\shaders\Basic.hlsli" />

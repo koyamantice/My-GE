@@ -6,7 +6,7 @@ private:
 	WNDCLASSEX w{};
 	HWND hwnd = nullptr;
 public:
-	static const int window_width = 1080;//â°ïù
+	static const int window_width = 1280;//â°ïù
 	static const int window_height = 720;//ècïù
 
 	static LRESULT WindowProc(HWND hwnd, UINT msg, WPARAM wparm, LPARAM lparam);

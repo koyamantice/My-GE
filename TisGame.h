@@ -1,49 +1,32 @@
 ﻿#pragma once
-#include "DirectXCommon.h"
-#include "WinApp.h"
-#include "Input.h"
-#include "Sprite.h"
-#include "DebugText.h"
 #include "CollisionPrimitive.h"
 #include "Collision.h"
-#include "Object3d.h"
-#include "Audio.h"
+#include "Framework.h"
+#include <vector>
 
-
-class TisGame {
+class TisGame:public Framework {
 public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize();
+	void Initialize() override;
 	/// <summary>
 	/// 終了
 	/// </summary>
-	void Finalize();
+	void Finalize() override;
 	/// <summary>
 	/// 毎フレーム更新
 	/// </summary>
-	void Update();
+	void Update() override;
 	/// <summary>
 	/// 描画
 	/// </summary>
-	void Draw();
-	bool IsEndRequst() { return endResquest_; }
+	void Draw() override;
 private:
-	bool endResquest_ = false;
-	WinApp* winApp = nullptr;
-	DirectXCommon* dxCommon = nullptr;
-
-	Input* input = nullptr;
-	Audio* audio=nullptr;
-	DebugText* debugText=nullptr;
 
 
 	Model* modelPin = nullptr;
 	Object3d* objPin = nullptr;
-
 	Sprite* sprite[10] = { nullptr };
-
-
 };
 

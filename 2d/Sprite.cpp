@@ -21,11 +21,12 @@ XMMATRIX Sprite::matProjection;
 ComPtr<ID3D12DescriptorHeap> Sprite::descHeap;
 ComPtr<ID3D12Resource> Sprite::texBuff[srvCount];
 
-bool Sprite::StaticInitialize(ID3D12Device* device, int window_width, int window_height) {
+bool Sprite::StaticInitialize(ID3D12Device* device, ID3D12GraphicsCommandList* cmdList, int window_width, int window_height) {
 	// nullptrチェック
 	assert(device);
 
 	Sprite::device = device;
+	Sprite::cmdList = cmdList;
 
 	// デスクリプタサイズを取得
 	descriptorHandleIncrementSize = device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
@@ -285,12 +286,12 @@ bool Sprite::LoadTexture(UINT texnumber, const wchar_t* filename) {
 	return true;
 }
 
-void Sprite::PreDraw(ID3D12GraphicsCommandList* cmdList) {
+void Sprite::PreDraw() {
 	// PreDrawとPostDrawがペアで呼ばれていなければエラー
-	assert(Sprite::cmdList == nullptr);
+	//assert(Sprite::cmdList == nullptr);
 
 	// コマンドリストをセット
-	Sprite::cmdList = cmdList;
+	//Sprite::cmdList = cmdList;
 
 	// パイプラインステートの設定
 	cmdList->SetPipelineState(pipelineState.Get());
@@ -302,7 +303,7 @@ void Sprite::PreDraw(ID3D12GraphicsCommandList* cmdList) {
 
 void Sprite::PostDraw() {
 	// コマンドリストを解除
-	Sprite::cmdList = nullptr;
+	//Sprite::cmdList = nullptr;
 }
 
 Sprite* Sprite::Create(UINT texNumber, XMFLOAT2 position, XMFLOAT4 color, XMFLOAT2 anchorpoint, bool isFlipX, bool isFlipY) {

@@ -1,9 +1,9 @@
 ﻿#pragma once
-#include "CollisionPrimitive.h"
-#include "Collision.h"
+
 #include "Framework.h"
 #include <vector>
 
+class GamePlayScene;
 class TisGame:public Framework {
 public:
 	/// <summary>
@@ -23,10 +23,6 @@ public:
 	/// </summary>
 	void Draw() override;
 private:
-
-
-	Model* modelPin = nullptr;
-	Object3d* objPin = nullptr;
-	Sprite* sprite[10] = { nullptr };
+	GamePlayScene* scene_ = nullptr;
 };
 

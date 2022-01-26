@@ -77,11 +77,13 @@ void DebugText::Printf(const char* fmt, ...)
 }
 
 // まとめて描画
-void DebugText::DrawAll(ID3D12GraphicsCommandList* cmdList)
+void DebugText::DrawAll()
 {
+
 	// 全ての文字のスプライトについて
 	for (int i = 0; i < spriteIndex; i++)
 	{
+		spriteDatas[i]->PreDraw();
 		// スプライト描画
 		spriteDatas[i]->Draw();
 	}

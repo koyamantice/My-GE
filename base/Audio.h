@@ -56,6 +56,7 @@ public: // サブクラス
 	};
 
 public: // メンバ関数
+	static Audio* GetInstance();
 
 	/// <summary>
 	/// 初期化

@@ -27,13 +27,16 @@ void Framework::Initialize() {
 	dxCommon = new DirectXCommon();
 	dxCommon->Initialize(winApp);
 	// 入力の初期化
-	input = new Input();
-	if (!input->Initialize(winApp)) {
-		assert(0);
-		return;
-	}//スプライト関係
+	input = Input::GetInstance();
+	input->Initialize(winApp);
+
+	audio = Audio::GetInstance();
+	audio->Initialize();	
+	
+	
+	//スプライト関係
 	// スプライト静的初期化
-	Sprite::StaticInitialize(dxCommon->GetDev(), WinApp::window_width, WinApp::window_height);
+	Sprite::StaticInitialize(dxCommon->GetDev(), dxCommon->GetCmdList(),WinApp::window_width, WinApp::window_height);
 
 	const int debugTextTexNumber = 0;
 	// デバッグテキスト用テクスチャ読み込み
@@ -47,7 +50,7 @@ void Framework::Initialize() {
 
 
 
-	Object3d::StaticInitialize(dxCommon->GetDev(), WinApp::window_width, WinApp::window_height);
+	Object3d::StaticInitialize(dxCommon->GetDev(), dxCommon->GetCmdList(), WinApp::window_width, WinApp::window_height);
 	// マウスカーソルの非表示
 	ShowCursor(TRUE);
 
@@ -55,9 +58,7 @@ void Framework::Initialize() {
 }
 
 void Framework::Finalize() {
-	delete audio;
 	delete dxCommon;
-	delete input;
 	winApp->Finalize();
 	delete winApp;
 

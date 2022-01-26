@@ -35,7 +35,7 @@ public:// メンバ関数
 	void NPrint(int len, const char* text);
 	void Printf(const char* fmt, ...);
 
-	void DrawAll(ID3D12GraphicsCommandList * cmdList);
+	void DrawAll();
 
 private:
 	DebugText();
